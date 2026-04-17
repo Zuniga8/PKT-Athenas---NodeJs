@@ -34,16 +34,16 @@ app.get('/search', (req, res) => {
       error: 'You must provide in search!'
     })
   }
-  newsInfo(req.query.search, (error, { newsTitle, newsDescription, newsAuthor } = {}) => {
+  newsInfo(req.query.search, (error, { newsAllInfo } = {}) => {
 
     if (error) {
       return res.send({ error })
     }
 
     res.send({
-      newsTitle: newsTitle,
-      newsDescription: newsDescription,
-      newsAuthor: req.query.search
+      newsSearch: req.query.search,
+      newsAllInfo
+      
     })
   })
 
